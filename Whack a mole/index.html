@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="media/mole.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Whack a mole</title>
+  </head>
+  <body>
+    <div class="dirts">
+      <div class="dirt1">
+        <div class="dirt" onclick="check(0)">
+          <img src="media/mole.png" alt="" class="mole" id="0" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+        <div class="dirt" onclick="check(1)">
+          <img src="media/mole.png" alt="" class="mole" id="1" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+        <div class="dirt" onclick="check(2)">
+          <img src="media/mole.png" alt="" class="mole" id="2" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+      </div>
+      <div class="dirt2">
+        <div class="dirt" onclick="check(3)">
+          <img src="media/mole.png" alt="" class="mole" id="3" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+        <div class="dirt" onclick="check(4)">
+          <img src="media/mole.png" alt="" class="mole" id="4" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+        <div class="dirt" onclick="check(5)">
+          <img src="media/mole.png" alt="" class="mole" id="5" />
+          <img src="media/dirt.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <h2 id="text">Score: 0</h2>
+    <button id="restart" onclick="restartGame()">Restart</button>
+    <script src="app.js"></script>
+  </body>
+</html>
