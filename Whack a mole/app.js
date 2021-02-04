@@ -8,9 +8,9 @@ var random = Math.floor(Math.random() * 6);
 function moleSpawn(move) {
   var moleId = document.getElementById(random);
   if (move == "up") {
-    moleId.style.animation = "up .5s forwards";
+    moleId.style.animation = "up .4s forwards";
   } else {
-    moleId.style.animation = "down .5s forwards";
+    moleId.style.animation = "down .4s forwards";
   }
 }
 
@@ -49,7 +49,7 @@ function startTime() {
 }
 
 function time() {
-  if (seconds > 1) {
+  if (seconds > 0) {
     clearInterval(intervalTime);
     timeEnd = true;
     message(`Time is up. Score: ${score}`, "on");
@@ -70,4 +70,25 @@ function message(displayText, on) {
 
 function restartGame() {
   location.reload();
+}
+
+var mainMole = document.getElementById("main-mole");
+var mainPage = document.getElementById("main-page");
+
+function mainStart(status) {
+  mainMole.style.animation = "";
+  if (status) {
+    mainMole.style.animation = "up .4s forwards";
+  } else {
+    mainMole.style.animation = "down .4s forwards";
+  }
+}
+
+var dirts = document.getElementById("dirts");
+var gameScore = document.getElementById("game-score");
+
+function startGame() {
+  mainPage.style.display = "none";
+  dirts.style.display = "flex";
+  gameScore.style.display = "block";
 }

@@ -4,12 +4,59 @@
   font-family: sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.dirts {
+.main-page {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 2%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main-page h1,
+.main-page .images,
+.main-page .buttons {
+  padding: 50px 0;
+}
+.main-page h1 {
+  font-size: 50px;
+  font-family: "Poppins", sans-serif;
+}
+.main-page .images {
+  position: relative;
+}
+.main-page .images img:nth-child(1) {
+  height: 200px;
+  width: 250px;
+  position: absolute;
+  z-index: -1;
+  left: 30%;
+}
+.main-page .images img:nth-child(2) {
+  height: 250px;
+  width: 500px;
+}
+.main-page .buttons button {
+  display: block;
+  margin: 10px auto;
+  height: 40px;
+  width: 150px;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.main-page .buttons button:nth-child(1) {
+  background: #2ecc71;
+  color: #ffffff;
+}
+.dirts {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5% 0 0 0;
 }
 .dirts .dirt1,
 .dirts .dirt2 {
@@ -22,6 +69,9 @@
   cursor: pointer;
   position: relative;
 }
+.dirts .dirt img {
+  user-select: none;
+}
 .dirts .dirt img:nth-child(1) {
   height: 100px;
   width: 150px;
@@ -32,6 +82,9 @@
 .dirts .dirt img:nth-child(2) {
   height: 150px;
   width: 300px;
+}
+.game-score {
+  display: none;
 }
 #text {
   font-weight: 500;

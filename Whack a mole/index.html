@@ -4,11 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="media/mole.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Whack a mole</title>
   </head>
   <body>
-    <div class="dirts">
+    <div class="main-page" id="main-page">
+      <h1>Whack a Mole Game</h1>
+      <div class="images">
+        <img src="media/mole.png" alt="" id="main-mole" />
+        <img
+          src="media/dirt.png"
+          alt=""
+          onmouseover="mainStart(true)"
+          onmouseout="mainStart(false)"
+        />
+      </div>
+      <div class="buttons">
+        <button onclick="startGame()">Start</button>
+        <button>Options</button>
+      </div>
+    </div>
+    <div class="dirts" id="dirts">
       <div class="dirt1">
         <div class="dirt" onclick="check(0)">
           <img src="media/mole.png" alt="" class="mole" id="0" />
@@ -38,8 +56,10 @@
         </div>
       </div>
     </div>
-    <h2 id="text">Score: 0</h2>
-    <button id="restart" onclick="restartGame()">Restart</button>
+    <div class="game-score" id="game-score">
+      <h2 id="text">Score: 0</h2>
+      <button id="restart" onclick="restartGame()">Restart</button>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
