@@ -2,15 +2,16 @@ var text = document.getElementById("text");
 var restart = document.getElementById("restart");
 var timeEnd = false;
 var score = 0;
+var time = 4;
 
 var random = Math.floor(Math.random() * 6);
 
 function moleSpawn(move) {
   var moleId = document.getElementById(random);
   if (move == "up") {
-    moleId.style.animation = "up .4s forwards";
+    moleId.style.animation = `up .${time}s forwards`;
   } else {
-    moleId.style.animation = "down .4s forwards";
+    moleId.style.animation = `down .${time}s forwards`;
   }
 }
 
@@ -68,10 +69,6 @@ function message(displayText, on) {
   }
 }
 
-function restartGame() {
-  location.reload();
-}
-
 var mainMole = document.getElementById("main-mole");
 var mainPage = document.getElementById("main-page");
 
@@ -91,4 +88,24 @@ function startGame() {
   mainPage.style.display = "none";
   dirts.style.display = "flex";
   gameScore.style.display = "block";
+}
+
+var optionsDiv = document.getElementById("options");
+
+function options() {
+  optionsDiv.style.display = "block";
+  mainPage.style.display = "none";
+}
+
+var rangeNumber = document.getElementById("range-number");
+
+function moleTime(e) {
+  var rangeValue = e.target.value;
+  rangeNumber.innerHTML = rangeValue;
+  time = rangeValue;
+}
+
+function saveOptions() {
+  optionsDiv.style.display = "none";
+  mainPage.style.display = "block";
 }

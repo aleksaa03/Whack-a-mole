@@ -5,7 +5,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .main-page {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -31,6 +31,7 @@
   width: 250px;
   position: absolute;
   z-index: -1;
+  top: 10%;
   left: 30%;
 }
 .main-page .images img:nth-child(2) {
@@ -50,6 +51,52 @@
 .main-page .buttons button:nth-child(1) {
   background: #2ecc71;
   color: #ffffff;
+}
+.options {
+  display: none;
+  text-align: center;
+  padding-top: 3%;
+}
+.options h1,
+.options h4,
+input[type="range"] {
+  padding: 50px 0;
+}
+.options h1,
+.options h4 {
+  font-family: "Poppins", sans-serif;
+}
+.options h1 {
+  font-size: 50px;
+}
+.options h4 {
+  font-size: 30px;
+}
+.options .mole-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.options .mole-time input[type="range"],
+.mole-time h3 {
+  margin: 0 10px;
+}
+.options .mole-time input[type="range"] {
+  height: 30px;
+  width: 150px;
+  outline: none;
+}
+.options button {
+  display: block;
+  margin: 50px auto;
+  height: 40px;
+  width: 150px;
+  border-radius: 24px;
+  background: #2ecc71;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 .dirts {
   display: none;
