@@ -2,16 +2,17 @@ var text = document.getElementById("text");
 var restart = document.getElementById("restart");
 var timeEnd = false;
 var score = 0;
-var time = 4;
+var timeMoleUp = 4;
 
 var random = Math.floor(Math.random() * 6);
 
 function moleSpawn(move) {
   var moleId = document.getElementById(random);
   if (move == "up") {
-    moleId.style.animation = `up .${time}s forwards`;
+    moleId.style.animation = `up .${timeMoleUp}s forwards`;
+    playAudio("mole-up");
   } else {
-    moleId.style.animation = `down .${time}s forwards`;
+    moleId.style.animation = `down .${timeMoleUp}s forwards`;
   }
 }
 
@@ -26,6 +27,7 @@ function check(num) {
       mole.forEach((mole) => {
         mole.style.animation = "";
       });
+      playAudio("bonk");
       message(`Score: ${score}`);
       moleSpawn("down");
       setTimeout(startTime, 500);
@@ -92,9 +94,14 @@ function startGame() {
 
 var optionsDiv = document.getElementById("options");
 
-function options() {
-  optionsDiv.style.display = "block";
-  mainPage.style.display = "none";
+function options(status) {
+  if (!status) {
+    optionsDiv.style.display = "block";
+    mainPage.style.display = "none";
+  } else {
+    optionsDiv.style.display = "none";
+    mainPage.style.display = "block";
+  }
 }
 
 var rangeNumber = document.getElementById("range-number");
@@ -102,10 +109,17 @@ var rangeNumber = document.getElementById("range-number");
 function moleTime(e) {
   var rangeValue = e.target.value;
   rangeNumber.innerHTML = rangeValue;
-  time = rangeValue;
+  timeMoleUp = rangeValue;
 }
 
-function saveOptions() {
-  optionsDiv.style.display = "none";
-  mainPage.style.display = "block";
+function playAudio(file) {
+  var audio = new Audio("media/" + file + ".wav");
+  audio.className = "audio";
+
+  for (var i = 0; i < audio.length; i++) {
+    audio[i].pause();
+    audio[i].currentTime = 0;
+  }
+
+  audio.play();
 }

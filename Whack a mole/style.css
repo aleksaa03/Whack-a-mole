@@ -51,6 +51,10 @@
 .main-page .buttons button:nth-child(1) {
   background: #2ecc71;
   color: #ffffff;
+  transition: 0.25s;
+}
+.main-page .buttons button:nth-child(1):hover {
+  background: #27ae60;
 }
 .options {
   display: none;
@@ -96,7 +100,11 @@ input[type="range"] {
   color: #ffffff;
   border: none;
   outline: none;
+  transition: 0.25s;
   cursor: pointer;
+}
+.options button:hover {
+  background: #27ae60;
 }
 .dirts {
   display: none;
@@ -149,6 +157,9 @@ input[type="range"] {
   transition: 0.25s;
   outline: none;
   cursor: pointer;
+}
+#restart:hover {
+  background: #27ae60;
 }
 @keyframes up {
   0% {
