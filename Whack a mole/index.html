@@ -10,15 +10,6 @@
     <title>Whack a mole</title>
   </head>
   <body>
-    <div class="options" id="options">
-      <h1>Options</h1>
-      <h4>Set the mole time</h4>
-      <div class="mole-time">
-        <input type="range" name="" max="5" oninput="moleTime(event)" />
-        <h3 id="range-number">0</h3>
-      </div>
-      <button onclick="options(true)">Save</button>
-    </div>
     <div class="main-page" id="main-page">
       <h1>Whack a Mole Game</h1>
       <div class="images">
@@ -34,6 +25,22 @@
         <button onclick="startGame()">Start</button>
         <button onclick="options(false)">Options</button>
       </div>
+    </div>
+    <div class="options" id="options">
+      <h1>Options</h1>
+      <h4>Set the mole time</h4>
+      <div class="mole-time">
+        <input type="range" name="" max="5" id="range" oninput="moleTime(event)" />
+        <h3 id="range-number">0</h3>
+      </div>
+      <h4>Set sound</h4>
+      <div class="sound">
+        <div class="on-off">
+          <button class="sound-button">ON</button>
+          <button class="sound-button">OFF</button>
+        </div>
+      </div>
+      <button id="test" onclick="options(true)">Save</button>
     </div>
     <div class="dirts" id="dirts">
       <div class="dirt1">

@@ -2,7 +2,13 @@ var text = document.getElementById("text");
 var restart = document.getElementById("restart");
 var timeEnd = false;
 var score = 0;
-var timeMoleUp = 4;
+var timeMoleUp;
+
+if (moleUpTimeStorage == null) {
+  timeMoleUp = 4;
+} else {
+  timeMoleUp = moleUpTimeStorage;
+}
 
 var random = Math.floor(Math.random() * 6);
 
@@ -103,23 +109,81 @@ function options(status) {
     mainPage.style.display = "block";
   }
 }
-
+var moleUpTimeStorage = parseInt(localStorage.getItem("mole-up-time"));
 var rangeNumber = document.getElementById("range-number");
+var range = document.getElementById("range");
+
+range.value = timeMoleUp;
+rangeNumber.innerHTML = timeMoleUp;
+timeMoleUp = timeMoleUp;
 
 function moleTime(e) {
   var rangeValue = e.target.value;
+  localStorage.setItem("mole-up-time", e.target.value);
   rangeNumber.innerHTML = rangeValue;
   timeMoleUp = rangeValue;
 }
 
+var moleSoundStorage = localStorage.getItem("mole-sound");
+
+var sound;
+
+if (moleSoundStorage == "true" || moleSoundStorage == null) {
+  sound = true;
+} else {
+  sound = false;
+}
+
 function playAudio(file) {
-  var audio = new Audio("media/" + file + ".wav");
-  audio.className = "audio";
-
-  for (var i = 0; i < audio.length; i++) {
-    audio[i].pause();
-    audio[i].currentTime = 0;
+  if (sound) {
+    var audio = new Audio("media/" + file + ".wav");
+    audio.className = "audio";
+    for (var i = 0; i < audio.length; i++) {
+      audio[i].pause();
+      audio[i].currentTime = 0;
+    }
+    audio.play();
   }
+}
 
-  audio.play();
+var soundButtons = document.querySelectorAll(".sound-button");
+
+if (moleSoundStorage == "true" || moleSoundStorage == null) {
+  setSoundButtonColor(0);
+} else {
+  setSoundButtonColor(1);
+}
+
+for (let i = 0; i < soundButtons.length; i++) {
+  soundButtons[i].addEventListener("click", function () {
+    soundButtons.forEach((soundButtons) => {
+      soundButtons.style.background = "#ffffff";
+      soundButtons.style.color = "#000000";
+    });
+    if (soundButtons[i].innerHTML == "ON") {
+      localStorage.setItem("mole-sound", true);
+      sound = true;
+    } else {
+      localStorage.setItem("mole-sound", false);
+      sound = false;
+    }
+    soundButtons[i].style.background = "#2ecc71";
+    soundButtons[i].style.color = "#ffffff";
+
+    return sound;
+  });
+}
+
+function setSoundButtonColor(num) {
+  if (num == 0) {
+    soundButtons[num].style.background = "#2ecc71";
+    soundButtons[num].style.color = "#ffffff";
+    soundButtons[1].style.background = "#ffffff";
+    soundButtons[1].style.color = "#000000";
+  } else {
+    soundButtons[num].style.background = "#2ecc71";
+    soundButtons[num].style.color = "#ffffff";
+    soundButtons[0].style.background = "#ffffff";
+    soundButtons[0].style.color = "#000000";
+  }
 }
