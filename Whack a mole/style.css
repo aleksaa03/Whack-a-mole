@@ -5,6 +5,22 @@
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+#green-buttons {
+  background: #2ecc71;
+  display: block;
+  margin: auto;
+  height: 40px;
+  width: 150px;
+  border-radius: 24px;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  transition: 0.25s;
+  cursor: pointer;
+}
+#green-buttons:hover {
+  background: #27ae60;
+}
 .main-page {
   display: block;
   justify-content: center;
@@ -48,20 +64,31 @@
   outline: none;
   cursor: pointer;
 }
-.main-page .buttons button:nth-child(1) {
-  background: #2ecc71;
-  color: #ffffff;
-  transition: 0.25s;
-}
-.main-page .buttons button:nth-child(1):hover {
-  background: #27ae60;
-}
 .options {
   display: none;
   text-align: center;
-  padding-top: 3%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.options h4,
+.options .time {
+  display: none;
+}
+.options .mole-sound {
+  display: none;
+}
+.options i {
+  font-size: 25px;
+  margin: 50px 10px;
+  color: #2ecc71;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.options i:hover {
+  color: #27ae60;
+}
+.time .options h4,
 input[type="range"] {
   padding: 30px 0;
 }
@@ -108,21 +135,51 @@ input[type="range"] {
   cursor: pointer;
   transition: 0.25s;
 }
-.options #test {
-  display: block;
-  margin: 50px auto;
-  height: 40px;
+.skin-shop {
+  display: none;
+  text-align: center;
+}
+.skin-shop .cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 0;
+}
+.skin-shop .cards .card {
+  height: 300px;
+  width: 300px;
+  margin: 0 10px;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.skin-shop .cards .card .skin-img img {
+  height: 150px;
   width: 150px;
+}
+.skin-shop .cards .card .skin-details {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.skin-shop .cards .card .skin-details h4,
+.skin-details h5,
+.skin-details button {
+  margin: 10px 0;
+}
+.skin-shop #price-text {
+  padding: 2% 0;
+}
+.skin-shop .cards .card .skin-details button {
+  height: 40px;
+  width: 100px;
   border-radius: 24px;
-  background: #2ecc71;
-  color: #ffffff;
   border: none;
   outline: none;
-  transition: 0.25s;
   cursor: pointer;
-}
-.options #test:hover {
-  background: #27ae60;
 }
 .dirts {
   display: none;

@@ -99,14 +99,21 @@ function startGame() {
 }
 
 var optionsDiv = document.getElementById("options");
+var option = document.querySelectorAll(".option");
 
 function options(status) {
   if (!status) {
     optionsDiv.style.display = "block";
     mainPage.style.display = "none";
+    for (var i = 0; i < 2; i++) {
+      optionsIcons[i].style.display = "static";
+    }
   } else {
     optionsDiv.style.display = "none";
     mainPage.style.display = "block";
+    for (var i = 0; i < 2; i++) {
+      option[i].style.display = "none";
+    }
   }
 }
 var moleUpTimeStorage = parseInt(localStorage.getItem("mole-up-time"));
@@ -186,4 +193,89 @@ function setSoundButtonColor(num) {
     soundButtons[0].style.background = "#ffffff";
     soundButtons[0].style.color = "#000000";
   }
+}
+
+var optionsForMole = document.querySelectorAll(".option");
+var optionsIcons = document.querySelectorAll(".option-icon");
+
+function menu(option) {
+  for (var i = 0; i < optionsForMole.length; i++) {
+    optionsForMole[i].style.display = "none";
+  }
+  optionsForMole[option].style.display = "block";
+}
+
+var skinShop = document.getElementById("skin-shop");
+var cards = document.getElementById("skin-cards");
+
+var skins = [
+  {
+    id: 0,
+    name: "Mole",
+    price: 0,
+    img: "mole",
+  },
+  {
+    id: 1,
+    name: "Mole Birthday",
+    price: 2000,
+    img: "mole-birthday",
+  },
+];
+
+var userPrice = 2000;
+var priceText = document.getElementById("price-text");
+priceText.innerHTML = "Price: " + userPrice;
+
+function shop(status) {
+  if (!status) {
+    mainPage.style.display = "none";
+    skinShop.style.display = "block";
+    for (var i = 0; i < skins.length; i++) {
+      cards.innerHTML += `<div class="card">
+      <div class="skin-img">
+        <img src="media/mole-skins/${skins[i].img}.png" alt="" />
+      </div>
+      <div class="skin-details">
+        <h4>${skins[i].name}</h4>
+        <h5>Price: ${skins[i].price}</h5>
+        <button id="${skins[i].id}" onclick="buySkin(${skins[i].id})">Buy</button>
+        <button id="${skins[i].id}" style="display: none">Equip</button>
+      </div>
+    </div>`;
+    }
+  } else {
+    mainPage.style.display = "block";
+    skinShop.style.display = "none";
+    cards.innerHTML = "";
+  }
+}
+
+function buySkin(skinId) {
+  for (var i = 0; i < skins.length; i++) {
+    if (skins[i].id == skinId) {
+      if (userPrice >= skins[i].price) {
+        var savedObject = {
+          id: skins[i].id,
+          status: true,
+        };
+        saveSkins(savedObject);
+        document.getElementById(skins[i].id).remove();
+        document.getElementById(skins[i].id).style.display = "initial";
+        userPrice -= skins[i].price;
+        mainMole.src = `media/mole-skins/${skins[i].img}.png`;
+        for (var j = 0; j < mole.length; j++) {
+          mole[j].src = `media/mole-skins/${skins[i].img}.png`;
+        }
+      } else {
+        console.log(false);
+      }
+    }
+  }
+}
+
+function saveSkins(id) {
+  var saveSkin = JSON.parse(localStorage.getItem("mole-skins")) || [];
+  saveSkin.push(id);
+  localStorage.setItem("mole-skins", JSON.stringify(saveSkin));
 }

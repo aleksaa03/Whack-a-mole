@@ -3,9 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="media/mole.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="media/mole-skins/mole.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Whack a mole</title>
   </head>
@@ -13,7 +19,7 @@
     <div class="main-page" id="main-page">
       <h1>Whack a Mole Game</h1>
       <div class="images">
-        <img src="media/mole.png" alt="" id="main-mole" />
+        <img src="media/mole-skins/mole.png" alt="" id="main-mole" />
         <img
           src="media/dirt.png"
           alt=""
@@ -22,52 +28,64 @@
         />
       </div>
       <div class="buttons">
-        <button onclick="startGame()">Start</button>
+        <button id="green-buttons" onclick="startGame()">Start</button>
         <button onclick="options(false)">Options</button>
+        <button onclick="shop(false)">Shop</button>
       </div>
     </div>
     <div class="options" id="options">
       <h1>Options</h1>
-      <h4>Set the mole time</h4>
-      <div class="mole-time">
-        <input type="range" name="" max="5" id="range" oninput="moleTime(event)" />
-        <h3 id="range-number">0</h3>
-      </div>
-      <h4>Set sound</h4>
-      <div class="sound">
-        <div class="on-off">
-          <button class="sound-button">ON</button>
-          <button class="sound-button">OFF</button>
+      <i class="fas fa-stopwatch option-icon" onclick="menu(0)"></i>
+      <i class="fas fa-volume-up option-icon" onclick="menu(1)"></i>
+      <div class="time option" id="time">
+        <h4>Set the mole time</h4>
+        <div class="mole-time">
+          <input type="range" name="" max="5" id="range" oninput="moleTime(event)" />
+          <h3 id="range-number">0</h3>
         </div>
       </div>
-      <button id="test" onclick="options(true)">Save</button>
+      <div class="mole-sound option" id="mole-sound">
+        <h4>Set sound</h4>
+        <div class="sound">
+          <div class="on-off">
+            <button class="sound-button">ON</button>
+            <button class="sound-button">OFF</button>
+          </div>
+        </div>
+      </div>
+      <button id="green-buttons" onclick="options(true)">Save</button>
+    </div>
+    <div class="skin-shop" id="skin-shop">
+      <div class="cards" id="skin-cards"></div>
+      <h4 id="price-text"></h4>
+      <button id="green-buttons" onclick="shop(true)">Main Menu</button>
     </div>
     <div class="dirts" id="dirts">
       <div class="dirt1">
         <div class="dirt" onclick="check(0)">
-          <img src="media/mole.png" alt="" class="mole" id="0" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="0" />
           <img src="media/dirt.png" alt="" />
         </div>
         <div class="dirt" onclick="check(1)">
-          <img src="media/mole.png" alt="" class="mole" id="1" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="1" />
           <img src="media/dirt.png" alt="" />
         </div>
         <div class="dirt" onclick="check(2)">
-          <img src="media/mole.png" alt="" class="mole" id="2" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="2" />
           <img src="media/dirt.png" alt="" />
         </div>
       </div>
       <div class="dirt2">
         <div class="dirt" onclick="check(3)">
-          <img src="media/mole.png" alt="" class="mole" id="3" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="3" />
           <img src="media/dirt.png" alt="" />
         </div>
         <div class="dirt" onclick="check(4)">
-          <img src="media/mole.png" alt="" class="mole" id="4" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="4" />
           <img src="media/dirt.png" alt="" />
         </div>
         <div class="dirt" onclick="check(5)">
-          <img src="media/mole.png" alt="" class="mole" id="5" />
+          <img src="media/mole-skins/mole.png" alt="" class="mole" id="5" />
           <img src="media/dirt.png" alt="" />
         </div>
       </div>
