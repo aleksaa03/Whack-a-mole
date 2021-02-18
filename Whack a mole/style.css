@@ -97,6 +97,7 @@ input[type="range"] {
 }
 .options h4 {
   font-size: 30px;
+  padding: 10px 0 20px 0;
 }
 .options .mole-time {
   display: flex;
@@ -104,7 +105,8 @@ input[type="range"] {
   align-items: center;
 }
 .options .mole-time input[type="range"],
-.mole-time h3 {
+.mole-time h3,
+.options .change-volume input[type="range"] {
   margin: 0 10px;
 }
 .options .mole-time input[type="range"] {
@@ -117,7 +119,7 @@ input[type="range"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  flex-direction: column;
 }
 .options .sound .on-off {
   height: 40px;
@@ -134,6 +136,18 @@ input[type="range"] {
   outline: none;
   cursor: pointer;
   transition: 0.25s;
+}
+.options .sound .change-volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.options .sound .change-volume input[type="range"] {
+  height: 30px;
+  width: 150px;
+  outline: none;
+  cursor: pointer;
 }
 .skin-shop {
   display: none;

@@ -45,11 +45,23 @@
         </div>
       </div>
       <div class="mole-sound option" id="mole-sound">
-        <h4>Set sound</h4>
+        <h4>Audio</h4>
         <div class="sound">
           <div class="on-off">
             <button class="sound-button">ON</button>
             <button class="sound-button">OFF</button>
+          </div>
+          <h4>Change Volume</h4>
+          <div class="change-volume">
+            <h3 id="change-volume">5</h3>
+            <input
+              type="range"
+              name=""
+              max="1"
+              id="volume"
+              step="0.01"
+              oninput="changeVolume(event)"
+            />
           </div>
         </div>
       </div>

@@ -149,8 +149,33 @@ function playAudio(file) {
       audio[i].pause();
       audio[i].currentTime = 0;
     }
+    if (savedVolume == null) {
+      audio.volume = rangeVolume.value;
+    } else {
+      setInterval(function () {
+        audio.volume = parseFloat(localStorage.getItem("mole-game-volume"));
+      });
+    }
     audio.play();
   }
+}
+
+var rangeVolume = document.getElementById("volume");
+var changeVolumeText = document.getElementById("change-volume");
+var savedVolume = localStorage.getItem("mole-game-volume");
+
+if (savedVolume == null) {
+  rangeVolume.value = 1;
+  changeVolumeText.innerHTML = Math.floor(rangeVolume.value * 100) + " %";
+} else {
+  rangeVolume.value = savedVolume;
+  changeVolumeText.innerHTML = Math.floor(parseFloat(savedVolume) * 100) + " %";
+}
+
+function changeVolume(e) {
+  var volume = e.target.value;
+  localStorage.setItem("mole-game-volume", volume);
+  changeVolumeText.innerHTML = Math.floor(volume * 100) + " %";
 }
 
 var soundButtons = document.querySelectorAll(".sound-button");
