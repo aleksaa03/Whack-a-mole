@@ -250,29 +250,36 @@ var skins = [
 
 var userPrice = 2000;
 var priceText = document.getElementById("price-text");
-priceText.innerHTML = "Price: " + userPrice;
+// priceText.innerHTML = "Price: " + userPrice;
 
 function shop(status) {
+  // if (!status) {
+  //   mainPage.style.display = "none";
+  //   skinShop.style.display = "block";
+  //   for (var i = 0; i < skins.length; i++) {
+  //     cards.innerHTML += `<div class="card">
+  //     <div class="skin-img">
+  //       <img src="media/mole-skins/${skins[i].img}.png" alt="" />
+  //     </div>
+  //     <div class="skin-details">
+  //       <h4>${skins[i].name}</h4>
+  //       <h5>Price: ${skins[i].price}</h5>
+  //       <button id="${skins[i].id}" onclick="buySkin(${skins[i].id})">Buy</button>
+  //       <button id="${skins[i].id}" style="display: none">Equip</button>
+  //     </div>
+  //   </div>`;
+  //   }
+  // } else {
+  //   mainPage.style.display = "block";
+  //   skinShop.style.display = "none";
+  //   cards.innerHTML = "";
+  // }
   if (!status) {
     mainPage.style.display = "none";
     skinShop.style.display = "block";
-    for (var i = 0; i < skins.length; i++) {
-      cards.innerHTML += `<div class="card">
-      <div class="skin-img">
-        <img src="media/mole-skins/${skins[i].img}.png" alt="" />
-      </div>
-      <div class="skin-details">
-        <h4>${skins[i].name}</h4>
-        <h5>Price: ${skins[i].price}</h5>
-        <button id="${skins[i].id}" onclick="buySkin(${skins[i].id})">Buy</button>
-        <button id="${skins[i].id}" style="display: none">Equip</button>
-      </div>
-    </div>`;
-    }
   } else {
     mainPage.style.display = "block";
     skinShop.style.display = "none";
-    cards.innerHTML = "";
   }
 }
 

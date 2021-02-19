@@ -153,6 +153,16 @@ input[type="range"] {
   display: none;
   text-align: center;
 }
+.under-construction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.under-construction h1,
+.under-construction button {
+  margin: 10px 0;
+}
 .skin-shop .cards {
   display: flex;
   justify-content: center;
