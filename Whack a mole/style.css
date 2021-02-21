@@ -260,6 +260,24 @@ input[type="range"] {
 #restart:hover {
   background: #27ae60;
 }
+#price-text {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+#coin {
+  height: 25px;
+  width: 25px;
+  animation: animateCoin 3s linear infinite;
+}
+@keyframes animateCoin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
 @keyframes up {
   0% {
     transform: translateY(0px);

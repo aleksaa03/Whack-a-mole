@@ -30,6 +30,8 @@ function check(num) {
   if (!timeEnd) {
     if (num == random) {
       score++;
+      userPrice += 10;
+      localStorage.setItem("mole-game-coin", userPrice);
       mole.forEach((mole) => {
         mole.style.animation = "";
       });
@@ -248,8 +250,17 @@ var skins = [
   },
 ];
 
-var userPrice = 2000;
+var userPrice = 0;
+
+if (localStorage.getItem("mole-game-coin") == null) {
+  userPrice = 0;
+} else {
+  userPrice = parseInt(localStorage.getItem("mole-game-coin"));
+}
+
 var priceText = document.getElementById("price-text");
+priceText.innerHTML += "Coins: " + userPrice;
+
 // priceText.innerHTML = "Price: " + userPrice;
 
 function shop(status) {
