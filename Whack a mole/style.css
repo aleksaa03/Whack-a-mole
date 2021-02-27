@@ -34,25 +34,26 @@
 .main-page h1,
 .main-page .images,
 .main-page .buttons {
-  padding: 50px 0;
+  padding: 50px 0 40px 0;
 }
 .main-page h1 {
-  font-size: 50px;
+  font-size: 40px;
+  text-align: center;
 }
 .main-page .images {
   position: relative;
 }
 .main-page .images img:nth-child(1) {
-  height: 200px;
-  width: 250px;
+  height: 150px;
+  width: 200px;
   position: absolute;
   z-index: -1;
   top: 10%;
   left: 30%;
 }
 .main-page .images img:nth-child(2) {
-  height: 250px;
-  width: 500px;
+  height: 200px;
+  width: 450px;
 }
 .main-page .buttons button {
   display: block;
